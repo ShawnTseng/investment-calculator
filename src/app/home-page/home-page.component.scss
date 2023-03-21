@@ -1,7 +1,17 @@
-.win-rate-field {
-  width: 100px;
-}
+.home-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  .calculator-form {
+    width: 150px;
+    .win-rate-field {
+      width: 100px;
+    }
 
-.profit-loss-rate-field {
-  width: 100px;
+    .profit-loss-rate-field {
+      width: 100px;
+    }
+  }
 }

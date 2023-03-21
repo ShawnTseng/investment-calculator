@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent {
+  principle = 0;
+
   winRate = 0.5;
 
   profitLossRate = 2;
