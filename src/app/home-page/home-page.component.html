@@ -11,6 +11,7 @@
         </mat-form-field>
       </p>
       <p>
+        <!-- TODO:加入 tooltip 須從back test取得 -->
         <mat-form-field class="win-rate-field" appearance="outline" floatLabel="always">
           <mat-label>勝率</mat-label>
           <input matInput type="number" [value]="winRate * 100" (input)="onWinRateChange($event)">
@@ -18,10 +19,13 @@
         </mat-form-field>
       </p>
       <p>
+        <!-- TODO:加入 tooltip 須從止盈止損及當前價位回推 -->
         <mat-form-field class="profit-loss-rate-field" appearance="outline" floatLabel="always">
           <mat-label>盈虧比</mat-label>
           <input matInput type="number" [(ngModel)]="profitLossRate">
         </mat-form-field>
+        <!-- TODO:加入當前價位 -->
+        <!-- TODO:加入止盈止損位 -->
       </p>
       <!-- TODO:下注比例 -->
     </mat-card-content>
