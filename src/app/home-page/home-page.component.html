@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>計算機</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- TODO:本金 -->
+    <p>
+      <mat-form-field class="win-rate-field" appearance="outline">
+        <mat-label>勝率</mat-label>
+        <input matInput type="number" [value]="winRate * 100" (input)="onWinRateChange($event)">
+        <mat-icon matSuffix>percent</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="profit-loss-rate-field" appearance="outline">
+        <mat-label>盈虧比</mat-label>
+        <input matInput type="number" [(ngModel)]="profitLossRate">
+      </mat-form-field>
+    </p>
+    <!-- TODO:下注比例 -->
+  </mat-card-content>
+</mat-card>
