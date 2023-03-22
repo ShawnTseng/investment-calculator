@@ -1,33 +1,52 @@
 <div class="home-page-container">
-  <mat-card class="calculator-form">
+  <mat-card class="calculator-card">
     <mat-card-header>
       <mat-card-title>計算機</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>
-        <mat-form-field class="win-rate-field" appearance="outline" floatLabel="always">
-          <mat-label>本金</mat-label>
-          <input matInput type="number" [(ngModel)]="principle">
-        </mat-form-field>
-      </p>
-      <p>
-        <!-- TODO:加入 tooltip 須從back test取得 -->
-        <mat-form-field class="win-rate-field" appearance="outline" floatLabel="always">
-          <mat-label>勝率</mat-label>
-          <input matInput type="number" [value]="winRate * 100" (input)="onWinRateChange($event)">
-          <mat-icon matSuffix>percent</mat-icon>
-        </mat-form-field>
-      </p>
-      <p>
-        <!-- TODO:加入 tooltip 須從止盈止損及當前價位回推 -->
-        <mat-form-field class="profit-loss-rate-field" appearance="outline" floatLabel="always">
-          <mat-label>盈虧比</mat-label>
-          <input matInput type="number" [(ngModel)]="profitLossRate">
-        </mat-form-field>
-        <!-- TODO:加入當前價位 -->
-        <!-- TODO:加入止盈止損位 -->
-      </p>
-      <!-- TODO:下注比例 -->
+      <mat-grid-list cols="2">
+        <mat-grid-tile>
+          <div class="calculator-form">
+            <p>
+              <mat-form-field class="win-rate-field" appearance="outline" floatLabel="always">
+                <mat-label>本金</mat-label>
+                <input class="text-align-right" matInput type="number" [(ngModel)]="principle"
+                  (onChange)="onCalculateBestBetRatio()">
+              </mat-form-field>
+            </p>
+            <p>
+              <!-- TODO:加入 tooltip 須從back test取得 -->
+              <mat-form-field class="win-rate-field" appearance="outline" floatLabel="always">
+                <mat-label>勝率</mat-label>
+                <input class="text-align-right" matInput type="number" [value]="winRate * 100"
+                  (input)="onWinRateChange($event)" (onChange)="onCalculateBestBetRatio()">
+                <mat-icon matSuffix>percent</mat-icon>
+              </mat-form-field>
+            </p>
+            <p>
+              <!-- TODO:加入 tooltip 須從止盈止損及當前價位回推 -->
+              <mat-form-field class="profit-loss-rate-field" appearance="outline" floatLabel="always">
+                <mat-label>盈虧比</mat-label>
+                <input class="text-align-right" matInput type="number" [(ngModel)]="profitLossRate"
+                  (onChange)="onCalculateBestBetRatio()">
+              </mat-form-field>
+              <!-- TODO:加入當前價位 -->
+              <!-- TODO:加入止盈止損位 -->
+            </p>
+
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile>
+          <div class="result-container">
+            <p>
+              <mat-form-field appearance="outline" floatLabel="always">
+                <mat-label>最佳下注比例</mat-label>
+                <input class="text-align-right" matInput type="number" [(ngModel)]="bestBetRatio">
+              </mat-form-field>
+            </p>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
     </mat-card-content>
   </mat-card>
 
